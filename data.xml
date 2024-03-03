@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pokemons>
+    <pokemon>
+        <name>Bulbasaur</name>
+        <types>
+            <type>Grass</type>
+            <type>Poison</type>
+        </types>
+        <skills>
+            <skill>Overgrow</skill>
+            <skill>Chlorophyll</skill>
+        </skills>
+        <image>https://img.pokemondb.net/artwork/avif/bulbasaur.avif</image>
+    </pokemon>
+    <pokemon>
+        <name>Charmander</name>
+        <types>
+            <type>Fire</type>
+            
+
+        </types>
+        <skills>
+            <skill>Blaze</skill>
+            <skill>Solar Power</skill>
+        </skills>
+        <image>https://img.pokemondb.net/artwork/avif/charmander.avif</image>
+    </pokemon>
+</pokemons>

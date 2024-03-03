@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            text-align: center;
+        }
+        .children{
+            border: 1px solid black;
+            margin: 2vh 20vw;
+        }
+        .children img:hover{
+            
+            filter: brightness(150%);
+            margin: 25vh auto;
+        
+            scale: 1.2;
+            transition: 2s ease-out;
+            box-shadow: 0px 0px 300px 500px white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="parent"></div>
+</body>
+<script>
+    let xhttp = new XMLHttpRequest ();
+    xhttp.onreadystatechange = () => useXML(xhttp);
+    xhttp.open("GET","data.xml",true);
+    xhttp.send();
+
+    let useXML = (xml) => {
+        //get the docs punta sa root then select all pokemon 
+        let doc = xml.responseXML;
+        let root = doc.firstElementChild;
+        let pokemons = root.children;
+
+
+        for(let pokemon of pokemons){
+
+            //get the txt in xml
+            let name = pokemon.children[0].innerHTML;
+            let type1 = pokemon.children[1].children[0].innerHTML;
+            let type2 = pokemon.children[1].children[0].innerHTML;
+            let skill1 = pokemon.children[2].children[0].innerHTML;
+            let skill2 = pokemon.children[2].children[1].innerHTML;
+            let picture = pokemon.children[3].innerHTML;
+            
+            //creates html tags
+            let txtName = document.createElement("p");
+            let txtTypes = document.createElement("p");
+            let txtSkills = document.createElement("p");
+            let image = document.createElement("img");
+
+            //then inside of the created html tags put the xml text you get 
+            image.setAttribute("src",picture);
+            txtName.innerHTML = name;
+            txtTypes.innerHTML = `type: ${type1} type: ${type2}`;
+            txtSkills.innerHTML = `skill: ${skill1} type: ${skill1}`;
+            
+
+            //append na 
+            let parentDiv = document.querySelector(".parent");
+            let childDiv = document.createElement("div");
+            childDiv.setAttribute("class","children");
+
+            childDiv.appendChild(image);
+            childDiv.appendChild(txtName);
+            childDiv.appendChild(txtTypes);
+            childDiv.appendChild(txtSkills);
+
+            parentDiv.appendChild(childDiv);
+        }
+
+    }
+
+
+</script>
+</html>
